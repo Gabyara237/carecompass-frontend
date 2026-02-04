@@ -1,7 +1,7 @@
 
 import { useContext } from 'react';
 import { Routes, Route } from 'react-router';
-
+import { useState } from 'react';
 import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
 import NavBar from './components/NavBar/NavBar';
@@ -22,8 +22,9 @@ const  App = () => {
       <NavBar/>
       <Routes>
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
-        <Route path='/sign-up' element={<SignUpForm />} />
-        <Route path='/sign-in' element={<SignInForm />} />
+        <Route path="/sign-up" element={<SignUpForm  />} />
+<Route path="/sign-in" element={<SignInForm  />} />
+
         <Route path='/navigation' element={<NavigationBar/>} />
       </Routes>
     </>
