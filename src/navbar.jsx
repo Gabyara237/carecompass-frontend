@@ -6,7 +6,7 @@ export default function NavigationBar() {
   
   <div className="relative w-full">
   {/* Image as background but div grows to it */}
-  <img src={Background} alt="" className="w-full h-auto block fixed" />
+  <img src={Background} alt="" className="w-full h-auto block " />
   <div className="absolute top-0 left-0 w-full flex items-baseline justify-between p-4">
     <h1 className="text-3xl whitespace-nowrap">
   Care <span className="text-3xl text-[#278769] font-[Poppins]">Compass</span>
