@@ -8,7 +8,7 @@ import NavBar from './components/NavBar/NavBar';
 import Landing from './pages/Landing/Landing';
 import Dashboard from './pages/Dashboard/Dashboard';
 import NavigationBar from './navbar';
-
+import { Button } from './components/ui/button';
 import './App.css'
 
 
