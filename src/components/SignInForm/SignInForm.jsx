@@ -17,7 +17,7 @@ import { Button } from '../ui/button';
 const SignInForm = () => {
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ username: '', password: '' });
   const [message, setMessage] = useState('');
 
   const handleChange = (evt) => {
@@ -50,16 +50,15 @@ const SignInForm = () => {
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-6">
             <div>
-              <Label htmlFor="email">Email *</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-                onChange={handleChange}
-                value={formData.email}
-              />
+             <Label htmlFor="username">Username *</Label>
+<Input
+  id="username"
+  name="username"
+  placeholder="Username"
+  required
+  onChange={handleChange}
+  value={formData.username}
+/>
             </div>
             <div>
               <Label htmlFor="password">Password *</Label>
