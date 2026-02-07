@@ -4,6 +4,7 @@ import ClinicMap from '../../components/ClinicMap/ClinicMap';
 import SearchFilters from '../../components/SearchFilters/SearchFilters';
 import ClinicCard from '../../components/ClinicCard/ClinicCard';
 
+
 const API_BASE_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
 const ClinicSearch =()=> {
@@ -12,7 +13,8 @@ const ClinicSearch =()=> {
   const [mapCenter, setMapCenter] = useState([37.8044, -122.2711]);
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
-    radius: 25,
+    zipCode: '',
+    radius: 10,
     language: '',
     specialty: '',
     acceptsUninsured: false,
@@ -33,17 +35,33 @@ const ClinicSearch =()=> {
     try {
       let lat = mapCenter[0];
       let lng = mapCenter[1];
+      
+      if (filters.zipCode && filters.zipCode.trim()){
+        const geoRes= await axios.get(`${API_BASE_URL}/clinics/geocode`, {
+          params: {q: filters.zipCode.trim()}
+        });
 
-      if (filters.userLocation) {
+        if (!geoRes.data?.found) {
+          setError('Location not found. Try a different zip code or city.');
+          setLoading(false);
+          return;
+        }
+
+        lat = geoRes.data.data.lat;
+        lng = geoRes.data.data.lng;
+        setMapCenter([lat, lng]);
+
+      }else if (filters.userLocation){
         lat = filters.userLocation.lat;
         lng = filters.userLocation.lng;
-        setMapCenter([lat,lng]);
+        setMapCenter([lat, lng]);
       }
       const params = {
         lat,
         lng,
-        radius:filters.radius
+        radius: filters.radius
       };
+
 
       if (filters.language) params.language = filters.language;
       if (filters.specialty) params.specialty = filters.specialty;
