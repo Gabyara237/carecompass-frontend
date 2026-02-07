@@ -8,6 +8,8 @@ import NavBar from './components/NavBar/NavBar';
 import Landing from './pages/Landing/Landing';
 import Dashboard from './pages/Dashboard/Dashboard';
 import NavigationBar from './navbar';
+import ClinicSearch from './pages/ClinicSearch/ClinicSearch';
+
 import './App.css'
 import CardInfo from './components/Cards/seperateCardInfo';
 
@@ -29,6 +31,7 @@ const  App = () => {
       <Routes>
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
         <Route path='/sign-up' element={<SignUpForm />} />
+        <Route path="/clinics" element={<ClinicSearch />} />
         <Route path='/sign-in' element={<SignInForm />} />
         {/* <Route path='/navigation' element={<NavigationBar/>} /> */}
       </Routes>
