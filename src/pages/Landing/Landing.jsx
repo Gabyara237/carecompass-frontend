@@ -1,7 +1,9 @@
+import CardInfo from "@/components/Cards/seperateCardInfo";
+
 const Landing = () => {
   return (
     <main>
-      <h1> landing page for visitors.</h1>
+      <CardInfo/>
     </main>
   );
 };

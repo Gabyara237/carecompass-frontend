@@ -340,10 +340,10 @@ function ClinicDetail() {
                                 )}
                             </div>
                         </div>
-                <ReviewsSection 
-                    clinic={clinic} 
-                    onReviewsUpdated={handleReviewsUpdated}
-                />
+                        <ReviewsSection 
+                            clinic={clinic} 
+                            onReviewsUpdated={handleReviewsUpdated}
+                        />
                     </div>
 
                 <div className="lg:col-span-1 space-y-6">
