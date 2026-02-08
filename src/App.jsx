@@ -8,6 +8,7 @@ import NavBar from './components/NavBar/NavBar';
 import Landing from './pages/Landing/Landing';
 import Dashboard from './pages/Dashboard/Dashboard';
 import ClinicSearch from './pages/ClinicSearch/ClinicSearch';
+import ClinicDetail from './pages/ClinicDetail/ClinicDetail';
 
 import './App.css'
 
@@ -24,6 +25,7 @@ const  App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path="/clinics" element={<ClinicSearch />} />
+        <Route path="/clinics/:id" element={<ClinicDetail />} />
         <Route path='/sign-in' element={<SignInForm />} />
       </Routes>
     </>
